@@ -1,12 +1,20 @@
 package com.project.ktproj.dto.board
 
-import com.project.ktproj.domain.question.Question
 import com.project.ktproj.domain.question.QuestionType
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Size
 
 data class BoardUpdateRequestDto(
     val id: Long,
+
     val writer: String,
+
+    @field:NotBlank(message = "비밀번호는 필수입니다.")
+    @field:Size(min = 4, max = 10)
+    val password: String,
+
     val type: QuestionType,
-    val question: MutableList<Question> = mutableListOf()
+
+    val answer: String,
 ) {
 }

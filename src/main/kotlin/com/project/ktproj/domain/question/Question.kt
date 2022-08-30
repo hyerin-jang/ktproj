@@ -5,6 +5,7 @@ import javax.persistence.*
 @Entity
 class Question(
 
+    @Enumerated(EnumType.STRING)
     val type: QuestionType,
 
     val q1: String,
